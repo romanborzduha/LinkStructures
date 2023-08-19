@@ -17,7 +17,7 @@ struct API {
     
     private func makeRequest<T: Decodable>(type: APIRequestType) async -> T? {
         do {
-            guard let request = try APIRequestMaker.makeRequest(withType: .linkStructure) else { return nil }
+            guard let request = try APIRequestMaker.makeRequest(withType: type) else { return nil }
             
             let (data, response) = try await URLSession.shared.data(for: request)
             
